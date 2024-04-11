@@ -12,8 +12,8 @@ const FeaturesTab = () => {
   return (
     <>
       {/* <!-- ===== Features Tab Start ===== --> */}
-      <section className="relative pb-20 pt-18.5 lg:pb-22.5">
-        <div className="relative mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
+      <section className="relative pb-20 pt-18.5 lg:pb-22.5 w-screen">
+        <div className="relative mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0 w-screen">
           <div className="absolute -top-16 -z-1 mx-auto h-[350px] w-[90%]">
             <Image
               fill
@@ -46,7 +46,7 @@ const FeaturesTab = () => {
             whileInView="visible"
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
-            className="animate_top mb-15 flex flex-wrap justify-center rounded-[10px] border border-stroke bg-white shadow-solid-5 dark:border-strokedark dark:bg-blacksection dark:shadow-solid-6 md:flex-nowrap md:items-center lg:gap-7.5 xl:mb-21.5 xl:gap-12.5"
+            className="animate_top mb-15 flex flex-wrap justify-center rounded-[10px] border border-stroke bg-white shadow-solid-5 dark:border-strokedark dark:bg-blacksection dark:shadow-solid-6 md:flex-nowrap md:items-center lg:gap-7.5 xl:mb-21.5 xl:gap-12.5 w-screen"
           >
             <div
               onClick={() => setCurrentTab("tabOne")}
@@ -101,7 +101,7 @@ const FeaturesTab = () => {
               </div>
               <div className="md:w-3/5 lg:w-auto">
                 <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
-                  Recieve Your Completed Project
+                  Recieve Your Project
                 </button>
               </div>
             </div>
