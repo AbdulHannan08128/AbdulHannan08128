@@ -36,7 +36,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "app/(site)/test/page.js"  ],
+, "app/(site)/test/page.js", "app/(site)/blog/page.js", "components/Blog/BlogItem.js"  ],
   "exclude": [
     "node_modules"
   ]

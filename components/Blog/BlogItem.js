@@ -3,13 +3,18 @@ import { Blog } from "@/types/blog";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-
-const BlogItem = ({ blog }: { blog: Blog }) => {
-  const { mainImage, title, metadata } = blog;
+import {urlForImage} from "@/utils/configSanity";
+const BlogItem = ({ blog }) => {
+  
+  const mainImage = urlForImage(blog.cover_image).width(400).height(200).url()||'NO IMAGE';
+  const title = blog.title;
+  const metadata = blog.meta_data;
 
   return (
+   
     <>
-      <motion.div
+      
+       <motion.div
         variants={{
           hidden: {
             opacity: 0,
@@ -27,7 +32,7 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
         viewport={{ once: true }}
         className="animate_top rounded-lg bg-white p-4 pb-9 shadow-solid-8 dark:bg-blacksection"
       >
-        <Link href={`/blog/`} className="relative block aspect-[368/239]">
+        <Link href={`/blog/`} className="relative block aspect-[368/239] rounded-xl">
           <Image src={mainImage} alt={title} fill />
         </Link>
 
@@ -39,7 +44,7 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
           </h3>
           <p className="line-clamp-3">{metadata}</p>
         </div>
-      </motion.div>
+      </motion.div> 
     </>
   );
 };

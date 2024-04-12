@@ -2,7 +2,7 @@
 import { client } from '@/utils/configSanity';
 import React from 'react';
 import {urlForImage} from "@/utils/configSanity";
-import Image from 'next/image'
+
 export const dynamic = 'force-dynamic'
 async function getData() {
   
