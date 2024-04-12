@@ -204,7 +204,7 @@ const Contact = () => {
               </div>
               <div>
                 <h4 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
-                 <a href=""> LinkedIN </a> 
+                 <a href="https://www.linkedin.com/in/abdul-hannan-b44ab02a8"> LinkedIN </a> 
                 </h4>
                
               </div>

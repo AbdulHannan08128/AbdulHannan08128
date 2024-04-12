@@ -168,7 +168,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="https://www.linkedin.com/in/abdul-hannan-b44ab02a8"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         LinkedIN

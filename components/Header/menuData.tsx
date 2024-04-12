@@ -68,7 +68,7 @@ const menuData: Menu[] = [
         id: 35,
         title: "LinkedIN",
         newTab: true,
-        path: "/auth/signup",
+        path: "https://www.linkedin.com/in/abdul-hannan-b44ab02a8",
       },
       {
         id: 35,
