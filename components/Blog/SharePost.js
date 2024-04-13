@@ -1,4 +1,4 @@
-const SharePost = () => {
+const SharePost = (props) => {
   return (
     <>
       <div className="mt-11 flex flex-wrap gap-4 md:items-center md:justify-between md:gap-0">
@@ -105,16 +105,18 @@ const SharePost = () => {
             <p className="text-black dark:text-white">Tags:</p>
           </li>
           <li>
-            <a
+            {/* {console.log(props.tags)} */}
+            {props.tags.map((tag, index)=>{
+
+            return(<a
               href="#"
+              key={index}
               className="pr-2 duration-300 ease-in-out hover:text-primary"
             >
-              #business
-            </a>
-
-            <a href="#" className="duration-300 ease-in-out hover:text-primary">
-              #saas
-            </a>
+              #{tag}
+            </a>)
+            
+          })}
           </li>
         </ul>
       </div>

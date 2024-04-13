@@ -13,13 +13,17 @@ async function getData() {
   return data;
 }
 
+
 const SingleBlogPage = async (props) => {
   const blogs = await getData();
 
   //  console.log(blogs);
+
   return (
     <>
       {blogs.map((blog, index) => {
+        const tags = blog.keywords.split(' ');
+        
          const mainImage = urlForImage(blog.cover_image).width(400).height(200).url()||'NO IMAGE';
 
         const dateString = blog.date_pub; // Date string from Sanity
@@ -130,14 +134,14 @@ const SingleBlogPage = async (props) => {
                       </li>
                       <li>
                         <span className="text-black dark:text-white">
-                          Published On: {blog.date_pub ? formattedDate : ""}
+                          Published On: {blog.date_pub ? formattedDate : "N/A"}
                         </span>{" "}
                       </li>
                       <li>
                         <span className="text-black dark:text-white">
-                          Category:
+                          Category: {blog.category?blog.category:'N/A'}
                         </span>
-                        Blog
+                        
                       </li>
                     </ul>
 
@@ -150,7 +154,7 @@ const SingleBlogPage = async (props) => {
                       />
                     </div>
 
-                    <SharePost />
+                    <SharePost tags={tags}/>
                   </div>
                 </div>
               </div>
