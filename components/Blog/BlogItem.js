@@ -8,7 +8,7 @@ const BlogItem = ({ blog }) => {
   
   const mainImage = urlForImage(blog.cover_image).width(400).height(200).url()||'NO IMAGE';
   const title = blog.title;
-  const metadata = blog.meta_data;
+  const metadata = blog.meta_desc;
 
   return (
    
@@ -38,7 +38,7 @@ const BlogItem = ({ blog }) => {
 
         <div className="px-4">
           <h3 className="mb-3.5 mt-7.5 line-clamp-2 inline-block text-lg font-medium text-black duration-300 hover:text-primary dark:text-white dark:hover:text-primary xl:text-itemtitle2">
-            <Link href={`/blog/blog-details`}>
+            <Link href={`blog/${title.replaceAll(' ', '-')}`}>
               {`${title.slice(0, 40)}...`}
             </Link>
           </h3>

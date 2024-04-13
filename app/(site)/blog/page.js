@@ -3,7 +3,7 @@ import { client } from '@/utils/configSanity';
 import React from 'react';
 
 import BlogItem from "@/components/Blog/BlogItem";
-import { Metadata } from "next";
+
 
 export const metadata = {
   title: "Abdul Hannan- Full Stack Web Developer",
@@ -15,13 +15,15 @@ async function getData() {
   
   const query = "*[_type == 'blog']";
   const data = await client.fetch(query);
-  console.log();
+  // console.log(data);
   return data;
   
 }
 
+
 const BlogPage = async () => {
   const blogs = await getData();
+  // console.log(blogs); 
   return (
     <>
       {/* <!-- ===== Blog Grid Start ===== --> */}
