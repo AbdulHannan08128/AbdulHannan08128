@@ -161,7 +161,7 @@ const SingleBlogPage = async (props) => {
             </div>
           </section>
         ) : (
-          find?'':<div className="m-40"><div className=" text-3xl m-5" key={index}>No Posts Found</div><a href="/blog" className="m-10  bg-blue-800 text-white p-3 rounded-md hover:opacity-75 transition">Blog Page ↗</a></div>  
+         ''
         );
       })}
     </>
