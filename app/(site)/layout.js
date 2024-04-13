@@ -31,6 +31,7 @@ export default function RootLayout({
           <Footer />
           <ScrollToTop />
         </ThemeProvider>
+        <Analytics/>
       </body>
     </html>
   );
