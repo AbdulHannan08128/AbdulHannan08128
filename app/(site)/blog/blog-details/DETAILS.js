@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 async function getData() {
   const query = '*[_type == "blog"]';
   const data = await client.fetch(query);
-  // console.log(data);
+  console.log(data);
   return data;
 }
 
@@ -34,11 +34,15 @@ const SingleBlogPage = async (props) => {
 
         // Convert date object to locale-specific date string with options
         const formattedDate = dateObject.toLocaleDateString("en-US", options);
+       let find = false;
+        console.log(blog.title, props.title); 
         return blog.title == props.title ? (
+         
           <section
             className="pb-20 pt-35 lg:pb-25 lg:pt-45 xl:pb-30 xl:pt-50"
             key={index}
           >
+             {find = true}
             <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
               <div className="flex flex-col-reverse gap-7.5 lg:flex-row xl:gap-12.5">
                 <div className="md:w-1/2 lg:w-[32%]">
@@ -106,7 +110,7 @@ const SingleBlogPage = async (props) => {
                       <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
                         <Image
                           src={mainImage}
-                          alt="Kobe Steel plant that supplied"
+                          alt=""
                           fill
                           className="rounded-md object-cover object-center"
                         />
@@ -153,7 +157,7 @@ const SingleBlogPage = async (props) => {
             </div>
           </section>
         ) : (
-          ""
+          find?'':<div className="m-40"><div className=" text-3xl m-5" key={index}>No Posts Found</div><a href="/blog" className="m-10  bg-blue-800 text-white p-3 rounded-md hover:opacity-75 transition">Blog Page ↗</a></div>  
         );
       })}
     </>
