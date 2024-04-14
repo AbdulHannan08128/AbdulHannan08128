@@ -28,11 +28,12 @@ export default function RootLayout({
           <Header />
           <ToasterContext />
           {children}
+          <SpeedInsights/>
           <Footer />
           <ScrollToTop />
         </ThemeProvider>
         <Analytics/>
-        <SpeedInsights/>
+        
       </body>
     </html>
   );
