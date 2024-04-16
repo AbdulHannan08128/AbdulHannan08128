@@ -14,9 +14,7 @@ const Feature = () => {
             headerInfo={{
               title: "PORTFOLIO",
               subtitle: "My Recent Projects",
-              description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-            convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam
-            ante in maximus.`,
+              description: ``,
             }}
           />
           {/* <!-- Section Title End --> */}

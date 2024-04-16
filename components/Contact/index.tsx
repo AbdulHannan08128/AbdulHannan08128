@@ -60,10 +60,7 @@ const Contact = () => {
                 Send a message
               </h2>
 
-              <form
-                action="https://formbold.com/s/unique_form_id"
-                method="POST"
-              >
+              <form>
                 <div className="mb-7.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
                   <input
                     type="text"
@@ -134,7 +131,7 @@ const Contact = () => {
                   </div>
 
                   <button
-                    aria-label="send message"
+                    
                     className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-medium text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark"
                   >
                     Send Message

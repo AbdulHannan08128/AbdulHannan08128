@@ -93,9 +93,9 @@ const Pricing = () => {
               <div className="absolute -right-3.5 top-7.5 -rotate-90 rounded-bl-full rounded-tl-full bg-primary px-4.5 py-1.5 text-metatitle font-medium uppercase text-white">
                 popular
               </div>
-
+              <h4 className="text-xl font-bold">From</h4>
               <h3 className="mb-7.5 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
-              <h4 className="text-xl">From</h4>  $99{" "}
+                $99{" "}
                 <span className="text-regular text-waterloo dark:text-manatee">
                   /webapp
                 </span>
@@ -151,8 +151,9 @@ const Pricing = () => {
 
             {/* <!-- Pricing Item --> */}
             <div className="animate_top group relative rounded-lg border border-stroke bg-white p-7.5 shadow-solid-10 dark:border-strokedark dark:bg-blacksection dark:shadow-none md:w-[45%] lg:w-1/3 xl:p-12.5">
+            <h4 className="text-xl font-bold">From</h4>
               <h3 className="mb-7.5 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
-               <h4 className="text-xl">From</h4> $399{" "}
+                $399{" "}
                 <span className="text-regular text-waterloo dark:text-manatee">
                   /webapp
                 </span>
