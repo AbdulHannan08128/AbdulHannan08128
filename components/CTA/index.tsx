@@ -32,9 +32,7 @@ const CTA = () => {
                 Join With Me Today & Increase Your Productivity
               </h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                convallis tortor eros. Donec vitae tortor lacus. Phasellus
-                aliquam ante in maximus.
+               A Website Is Essential For A Modern Business Nowadays. So What Are You Waiting For, Join With Me Today & Increase Your Productivity
               </p>
             </motion.div>
             <motion.div

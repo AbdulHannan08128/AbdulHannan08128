@@ -72,8 +72,7 @@ const About = () => {
                 </span>
               </h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                ultricies lacus non fermentum ultrices. Fusce consectetur le.
+                Next.js 14 Is A Recently Released Version Of Next.js. It Is Far More Better Than The Previous Ones...
               </p>
 
               <div className="mt-7.5 flex items-center gap-5">
@@ -84,9 +83,9 @@ const About = () => {
                 </div>
                 <div className="w-3/4">
                   <h3 className="mb-0.5 text-metatitle2 text-black dark:text-white">
-                    SanityCMS + Next.js 14 + tailwind
+                    SanityCMS + Next.js 14 + Tailwind
                   </h3>
-                  <p>Ut ultricies lacus non fermentum ultrices.</p>
+                  <p>I Will Develop WebApps Using These Technologies</p>
                 </div>
               </div>
               <div className="mt-7.5 flex items-center gap-5">
@@ -99,7 +98,7 @@ const About = () => {
                   <h3 className="mb-0.5 text-metatitle2 text-black dark:text-white">
                     Source Code 
                   </h3>
-                  <p>consectetur adipiscing elit fermentum ultricies.</p>
+                  <p>I Will Give You The Source Code Once The Project Is Finished</p>
                 </div>
               </div>
             </motion.div>
@@ -138,8 +137,7 @@ const About = () => {
                
               </h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                ultricies lacus non fermentum ultrices. Fusce consectetur le.
+                Most Of The Businesses Need Their Own Websites To Increase Their Productivity But Some Can't Afford It And Then Their Business Goes Down. Keeping This In Mind, I Have Offered My Websites In A Very Low Cost So That Small Businesses Too Can Afford It...
               </p>
               <div>
                 <a

@@ -14,7 +14,7 @@ const Pricing = () => {
               headerInfo={{
                 title: `PRICING PLANS`,
                 subtitle: `My Pricing Plans`,
-                description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.`,
+                description: `The Minimum Price Of A Website Plan`,
               }}
             />
           </div>
@@ -42,7 +42,7 @@ const Pricing = () => {
               <h4 className="mb-2.5 text-para2 font-medium text-black dark:text-white">
                 Bronze
               </h4>
-              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
+              <p>Suitable For A Business Or An Individual For Only An Online Presence</p>
 
               <div className="mt-9 border-t border-stroke pb-12.5 pt-9 dark:border-strokedark">
                 <ul>
@@ -95,7 +95,7 @@ const Pricing = () => {
               </div>
 
               <h3 className="mb-7.5 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
-                $99{" "}
+              <h4 className="text-xl">From</h4>  $99{" "}
                 <span className="text-regular text-waterloo dark:text-manatee">
                   /webapp
                 </span>
@@ -103,7 +103,7 @@ const Pricing = () => {
               <h4 className="mb-2.5 text-para2 font-medium text-black dark:text-white">
                 Silver
               </h4>
-              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
+              <p>Suitable For A Business Which Needs Some Interactions In Their Webapp</p>
 
               <div className="mt-9 border-t border-stroke pb-12.5 pt-9 dark:border-strokedark">
                 <ul>
@@ -152,7 +152,7 @@ const Pricing = () => {
             {/* <!-- Pricing Item --> */}
             <div className="animate_top group relative rounded-lg border border-stroke bg-white p-7.5 shadow-solid-10 dark:border-strokedark dark:bg-blacksection dark:shadow-none md:w-[45%] lg:w-1/3 xl:p-12.5">
               <h3 className="mb-7.5 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
-                $399{" "}
+               <h4 className="text-xl">From</h4> $399{" "}
                 <span className="text-regular text-waterloo dark:text-manatee">
                   /webapp
                 </span>
@@ -160,7 +160,7 @@ const Pricing = () => {
               <h4 className="mb-2.5 text-para2 font-medium text-black dark:text-white">
                 Gold
               </h4>
-              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
+              <p>Suitable For A Large Business</p>
 
               <div className="mt-9 border-t border-stroke pb-12.5 pt-9 dark:border-strokedark">
                 <ul>

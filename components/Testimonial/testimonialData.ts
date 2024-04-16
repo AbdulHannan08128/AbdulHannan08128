@@ -5,34 +5,27 @@ import { Testimonial } from "@/types/testimonial";
 export const testimonialData: Testimonial[] = [
   {
     id: 1,
-    name: "Devid Smith",
-    designation: "Founter @democompany",
+    name: "Waseem Khan",
+    designation: "@A Travel Website",
     image: image1,
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit, ligula sit amet cursus tincidunt, lorem sem elementum nisi, convallis fringilla ante nibh non urna.",
+      "I Have No Words To Say About This Guy. First I Thought That How Can He Make It But When I Received My Website, I Was Shocked Because Of That Much Cheap Cost (Only $69 i.e Approx. 5000 INR) And Quality Work",
   },
   {
     id: 2,
-    name: "Jhon Abraham",
-    designation: "Founter @democompany",
+    name: "Tariq Sofi",
+    designation: "@A Restaurant Website",
     image: image2,
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit, ligula sit amet cursus tincidunt, lorem sem elementum nisi, convallis fringilla ante nibh non urna.",
+      "I Am Really Satisfied With The Quality Work Of This Guy Because He Made My Restaurant Website Which Gave A Rise To My Restaurant Traffic Only 6 After I Deployed My Website",
   },
   {
     id: 3,
-    name: "Devid Smith",
-    designation: "Founter @democompany",
+    name: "Mohammad Muzammil",
+    designation: "@Electronics E-commerce Website",
     image: image1,
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit, ligula sit amet cursus tincidunt, lorem sem elementum nisi, convallis fringilla ante nibh non urna.",
+      "I Liked My Website Because Of Its Quality Design And Functions. I Also Liked The Process Provided Here To Book A Website. I Am Really Thankful To Abdul Hannan For This Quality Work In An Affordable Price",
   },
-  {
-    id: 4,
-    name: "Jhon Abraham",
-    designation: "Founter @democompany",
-    image: image2,
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit, ligula sit amet cursus tincidunt, lorem sem elementum nisi, convallis fringilla ante nibh non urna.",
-  },
+ 
 ];
