@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import SectionHeader from "@/components/Common/SectionHeader";
-import BlogItem from "@/components/Blog/BlogItem";
+import BlogItem from "../../category/[category]/BlogItem";
 import Search from "../../Search";
 
 export const dynamic = "force-dynamic";
