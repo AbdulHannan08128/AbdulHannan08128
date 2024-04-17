@@ -12,18 +12,16 @@ export const metadata = {
 };
 export const dynamic = 'force-dynamic'
 async function getData() {
-  
-  const query = "*[_type == 'blog']";
+  const query = "*[_type == 'blog'] | order(date_pub desc)";
   const data = await client.fetch(query);
-  // console.log(data);
   return data;
-  
 }
+
 
 
 const BlogPage = async () => {
   const blogs = await getData();
-  // console.log(blogs); 
+   console.log(blogs); 
   return (
     <>
       {/* <!-- ===== Blog Grid Start ===== --> */}
