@@ -1,6 +1,7 @@
 import React from 'react'
 import Main from './main'
 import { client } from "@/utils/configSanity";
+export const dynamic = 'force-dynamic'
 async function getData() {
     const query = "*[_type == 'blog'] | order(date_pub desc)";
     const data = await client.fetch(query);
