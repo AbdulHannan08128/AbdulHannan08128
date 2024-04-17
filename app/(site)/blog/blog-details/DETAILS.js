@@ -98,11 +98,14 @@ const SingleBlogPage = async (props) => {
                     </h4>
 
                     <ul>
-                    {categories.map((category, index) => (
-                    <li key={index} className="mb-3 transition-all duration-300 last:mb-0 hover:text-primary">
-                        <a href={`/blog/category/${category}`}>{category}</a>
-                    </li>
-                ))}
+                      {categories.map((category, index) => (
+                        <li
+                          key={index}
+                          className="mb-3 transition-all duration-300 last:mb-0 hover:text-primary"
+                        >
+                          <Link href={`/blog/category/${category}`}>{category}</Link>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                   {blogs.map((relatedBlog, index) => {

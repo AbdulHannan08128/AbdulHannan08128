@@ -104,7 +104,7 @@ const SharePost = (props) => {
           <li>
             <p className="text-black dark:text-white">Tags:</p>
           </li>
-          <li>
+          <li className="flex flex-wrap">
             {/* {console.log(props.tags)} */}
             {props.tags.map((tag, index)=>{
 

@@ -13,7 +13,12 @@ const Header = () => {
   const [stickyMenu, setStickyMenu] = useState(false);
 
   const pathUrl = usePathname();
-
+  const Submenu = () =>{
+    
+  }
+  const Close = () =>{
+    setNavigationOpen(false);
+  }
   // Sticky menu
   const handleStickyMenu = () => {
     if (window.scrollY >= 80) {
@@ -105,7 +110,7 @@ const Header = () => {
           <nav>
             <ul className="flex flex-col gap-5 xl:flex-row xl:items-center xl:gap-10">
               {menuData.map((menuItem, key) => (
-                <li key={key} className={menuItem.submenu && "group relative"}>
+                <li key={key} className={menuItem.submenu && "group relative"} onClick={menuItem.submenu?Submenu:Close}>
                   {menuItem.submenu ? (
                     <>
                       <button
@@ -128,7 +133,7 @@ const Header = () => {
                         className={`dropdown ${dropdownToggler ? "flex" : ""}`}
                       >
                         {menuItem.submenu.map((item, key) => (
-                          <li key={key} className="hover:text-primary">
+                          <li key={key} className="hover:text-primary" onClick={Close}>
                             <Link href={item.path || "#"}>{item.title}</Link>
                           </li>
                         ))}
