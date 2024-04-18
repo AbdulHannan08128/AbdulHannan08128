@@ -24,6 +24,7 @@ export async function POST(req) {
       return Response.json({ status: 200 , id:info.messageId});
     },
     (err)=>{
+      return Response.json({ status: 400 , id:info.messageId});
       throw new Error(err)
     }
   );
@@ -46,6 +47,7 @@ export async function POST(req) {
       return Response.json({ status: 200 , id:info.messageId});
     },
     (err)=>{
+      return Response.json({ status: 400 , id:info.messageId});
       throw new Error(err)
     }
   );
