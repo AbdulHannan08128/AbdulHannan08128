@@ -23,6 +23,9 @@ export async function POST(req) {
     (info) => {
       return Response.json({ status: 200 , id:info.messageId});
     },
+    (err)=>{
+      throw new Error(err)
+    }
   );
 
   await sendEmail(
@@ -42,6 +45,9 @@ export async function POST(req) {
     (info) => {
       return Response.json({ status: 200 , id:info.messageId});
     },
+    (err)=>{
+      throw new Error(err)
+    }
   );
  
 }
