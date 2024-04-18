@@ -36,7 +36,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "app/(site)/test/page.js", "app/(site)/blog/page.js", "components/Blog/BlogItem.js", "app/(site)/blog/blog-details/DETAILS.js", "components/Blog/SharePost.js", "app/(site)/layout.js", "components/Blog/RelatedPost.js"  ],
+, "app/(site)/test/page.js", "app/(site)/blog/page.js", "components/Blog/BlogItem.js", "app/(site)/blog/blog-details/DETAILS.js", "components/Blog/SharePost.js", "app/(site)/layout.js", "components/Blog/RelatedPost.js", "app/(site)/page.js", "app/(site)/pricing/page.js", "app/(site)/skills/page.js", "app/(site)/portfolio/page.js", "app/(site)/support/page.js"  ],
   "exclude": [
     "node_modules"
   ]

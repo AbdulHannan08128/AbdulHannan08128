@@ -6,10 +6,27 @@ import BlogItem from "@/components/Blog/BlogItem";
 import Search from './Search'
 
 export const metadata = {
-  title: "Abdul Hannan- Full Stack Web Developer",
-  description: "Abdul Hannan- Full Stack Web Developer",
-  // other metadata
+  title: "Abdul Hannan's Blog - Insights on Web Development",
+  description: "Explore Abdul Hannan's blog for insightful articles on web development, frontend and backend technologies, best practices, tutorials, and more.",
+  keywords: "Abdul Hannan, Blog, Web Development, Frontend, Backend, Tutorials, Insights, Best Practices",
+  author: "Abdul Hannan",
+  // Add Open Graph metadata
+  openGraph: {
+    title: "Abdul Hannan's Blog - Insights on Web Development",
+    description: "Explore Abdul Hannan's blog for insightful articles on web development, frontend and backend technologies, best practices, tutorials, and more.",
+    type: "website",
+    url: "https://abdul-hannan.vercel.app/blog",
+    images: [
+      {
+        url: "/profile.png",
+        width: 1200,
+        height: 630,
+        alt: "Abdul Hannan's Blog - Insights on Web Development"
+      }
+    ]
+  },
 };
+
 export const dynamic = 'force-dynamic'
 async function getData() {
   const query = "*[_type == 'blog'] | order(date_pub desc)";
