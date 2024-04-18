@@ -1,6 +1,6 @@
-
+'use server'
 import nodemailer from 'nodemailer';
-import { resolve } from 'path';
+
 
 const MailConfig = async (emailOptions) => {
   const transporter = nodemailer.createTransport({
