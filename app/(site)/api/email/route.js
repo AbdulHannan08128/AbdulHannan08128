@@ -1,11 +1,11 @@
-import {sendEmail} from "../../../../functions/sendEmail";
+import { sendEmail } from "../../../../functions/sendEmail";
 
 export async function GET() {
   return Response.json({});
 }
 export async function POST(req) {
   const data = await req.json();
- await sendEmail(
+  await sendEmail(
     {
       to: "mohammadayaan08128@gmail.com",
       subject: data.subject,
@@ -20,13 +20,12 @@ export async function POST(req) {
   </div>
   `,
     },
-    (info)=>{
-        console.log(info.messageId);
-    }
-   
+    (info) => {
+      console.log(info.messageId);
+    },
   );
 
- await sendEmail(
+  await sendEmail(
     {
       to: data.email,
       subject:
@@ -39,10 +38,10 @@ export async function POST(req) {
           <a href="https://abdul-hannan.vercel.app/blog" style="padding: 20px; background: green; color: white; font-weight: bold; border: 2px solid black; text-decoration: none;">My Latest Blogs</a>
       </div>
       `,
-    }, (info)=>{
-        console.log(info.messageId);
-    }
-   
+    },
+    (info) => {
+      console.log(info.messageId);
+    },
   );
-  return Response.json({ hello: "hello" });
+  return Response.json({ status: 200 });
 }
