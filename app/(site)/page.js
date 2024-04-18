@@ -65,7 +65,7 @@ export default function Home() {
       <FAQ />
       <Testimonial />
       <Pricing />
-      <Contact />
+      <Contact NODE_ENV={process.env.NODE_ENV}/>
       {/* <Blog /> */}
     </main>
   );
