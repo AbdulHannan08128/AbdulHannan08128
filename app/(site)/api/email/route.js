@@ -21,12 +21,8 @@ export async function POST(req) {
   `,
     },
     (info) => {
-      return Response.json({ status: 200 , id:info.messageId});
+      console.log(info.messageId);
     },
-    (err)=>{
-      return Response.json({ status: 400 , id:info.messageId});
-      throw new Error(err)
-    }
   );
 
   await sendEmail(
@@ -44,12 +40,8 @@ export async function POST(req) {
       `,
     },
     (info) => {
-      return Response.json({ status: 200 , id:info.messageId});
+      console.log(info.messageId);
     },
-    (err)=>{
-      return Response.json({ status: 400 , id:info.messageId});
-      throw new Error(err)
-    }
   );
- 
+  return Response.json({ status: 200 });
 }

@@ -1,5 +1,6 @@
 
 import nodemailer from 'nodemailer';
+import { resolve } from 'path';
 
 const MailConfig = async (emailOptions) => {
   const transporter = nodemailer.createTransport({
@@ -19,9 +20,19 @@ const MailConfig = async (emailOptions) => {
   };
 
   try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent successfully. Message ID:', info.messageId);
-    return info;
+    await new Promise(async(resolve, reject)=>{
+      try {
+        const info = await transporter.sendMail(mailOptions);
+      console.log('Email sent successfully. Message ID:', info.messageId);
+      return info;
+      } catch (error) {
+        throw new Error(error);
+        return false;
+      }
+      
+      
+    })
+    
   } catch (error) {
     // console.error('Error sending email:', error);
     return false;
