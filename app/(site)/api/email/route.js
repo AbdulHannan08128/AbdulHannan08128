@@ -21,7 +21,7 @@ export async function POST(req) {
   `,
     },
     (info) => {
-      console.log(info.messageId);
+      return Response.json({ status: 200 , id:info.messageId});
     },
   );
 
@@ -40,8 +40,8 @@ export async function POST(req) {
       `,
     },
     (info) => {
-      console.log(info.messageId);
+      return Response.json({ status: 200 , id:info.messageId});
     },
   );
-  return Response.json({ status: 200 });
+ 
 }
