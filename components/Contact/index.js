@@ -2,10 +2,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
-import axios from 'axios'
+import axios from "axios";
 
-const Contact = ({NODE_ENV}) => {
-  
+const Contact = ({ NODE_ENV }) => {
   /**
    * Source: https://www.joshwcomeau.com/react/the-perils-of-rehydration/
    * Reason: To fix rehydration error
@@ -16,6 +15,9 @@ const Contact = ({NODE_ENV}) => {
   const [subject, setSubject] = React.useState("");
   const [number, setNumber] = React.useState("");
   const [message, setMessage] = React.useState("");
+  const [emailSent, setEmailSent] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [noEmail, setNoEmail] = React.useState(false);
   React.useEffect(() => {
     setHasMounted(true);
   }, []);
@@ -25,28 +27,43 @@ const Contact = ({NODE_ENV}) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true);
     const data = {
-    name:name,
-    email:email,
-    subject:subject,
-    number:number,
-    message:message
+      name: name,
+      email: email,
+      subject: subject,
+      number: number,
+      message: message,
+    };
+    try {
+      if (email!='' && name!=''&& email.includes('@') == true) {
+        
+      const response = await axios.post(
+        NODE_ENV == "production"
+          ? `https://abdul-hannan.vercel.app/api/email`
+          : "http://localhost:3000/api/email",
+        data,
+      );
+      setName("");
+      setEmail("");
+      setSubject("");
+      setNumber("");
+      setMessage("");
+      setEmailSent(true);
+      setLoading(false);
+      return response.data;
     }
-     try {
-
-    const response = await axios.post(NODE_ENV=='production'?`https://abdul-hannan.vercel.app/api/email`:'http://localhost:3000/api/email', data);
-    setName('');
-    setEmail('');
-    setSubject('');
-    setNumber('');
-    setMessage('');
-    return response.data;
+    else{
+      setLoading(false);
+      setNoEmail(true);
+    }
     
-  } catch (error) {
-    console.error('Error while making POST request:', error);
-    throw error;
-  }
-
+     
+    } catch (error) {
+      setLoading(false);
+      console.error("Error while making POST request:", error);
+      throw error;
+    }
   }
   function nameChange(e) {
     e.preventDefault();
@@ -153,33 +170,57 @@ const Contact = ({NODE_ENV}) => {
                 <div className="mb-11.5 flex">
                   <textarea
                     placeholder="Message"
-                    rows={4} 
+                    rows={4}
                     className="w-full border-b border-stroke bg-transparent focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white"
                     onChange={messageChange}
                     value={message}
-                  >{message}</textarea>
+                  >
+                    {message}
+                  </textarea>
                 </div>
 
                 <div className="flex flex-wrap gap-4 xl:justify-between ">
-                 
                   <button
                     className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-medium text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark"
                     onClick={handleSubmit}
                   >
                     Send Message
-                    <svg
-                      className="fill-white"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M10.4767 6.16664L6.00668 1.69664L7.18501 0.518311L13.6667 6.99998L7.18501 13.4816L6.00668 12.3033L10.4767 7.83331H0.333344V6.16664H10.4767Z"
-                        fill=""
-                      />
-                    </svg>
+                    {loading ? (
+                      <svg
+                        class="mr-3 h-5 w-5 animate-spin text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          class="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          stroke-width="4"
+                        ></circle>
+                        <path
+                          class="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V2C5.373 2 2 5.373 2 10h2zm2 8a8 8 0 018-8h2c0 4.627-3.373 8-8 8v-2zm8-6a8 8 0 01-8 8V22c4.627 0 8-3.373 8-8h-2zm-8-6a8 8 0 018 8h2c0-4.627-3.373-8-8-8v2z"
+                        ></path>
+                      </svg>
+                    ) : (
+                      <svg
+                        className="fill-white"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10.4767 6.16664L6.00668 1.69664L7.18501 0.518311L13.6667 6.99998L7.18501 13.4816L6.00668 12.3033L10.4767 7.83331H0.333344V6.16664H10.4767Z"
+                          fill=""
+                        />
+                      </svg>
+                    )}
                   </button>
                 </div>
               </form>
@@ -246,6 +287,95 @@ const Contact = ({NODE_ENV}) => {
         </div>
       </section>
       {/* <!-- ===== Contact End ===== --> */}
+
+      {emailSent && (
+        <div
+          id="infoMessage"
+          class=" flex items-center rounded-lg border-l-4 border-green-400 bg-green-50 p-4 shadow-lg dark:bg-gray-800 dark:text-green-300 w-96 fixed bottom-0 left-0 z-999 alert"
+        >
+          <div class="flex-shrink-0">
+            <svg
+              class="h-8 w-8 text-green-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              ></path>
+            </svg>
+          </div>
+          <div class="ml-3">
+            <p class="text-sm font-medium text-green-800 dark:text-green-300">
+              Message sent successfully
+            </p>
+            <p class="text-sm text-green-600 dark:text-green-300">
+              Please check your email after few hours.
+            </p>
+          </div>
+          <button
+            id="closeButton"
+            class="ml-auto flex-shrink-0 focus:text-green-500 focus:outline-none"
+            onClick={(e) => {
+              setEmailSent(false);
+            }}
+          >
+            <svg
+              class="h-6 w-6 text-green-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      )}
+      {noEmail && (
+        <div
+          id="infoMessage"
+          className=" flex items-center rounded-lg border-l-4 border-red-400 bg-red-50 p-4 shadow-lg dark:bg-gray-800 dark:text-red-300 w-96 fixed bottom-0 left-0 z-50 overflow-x-scroll alert"
+        >
+         
+          <div class="ml-3">
+            <p class="text-sm text-red-800 dark:text-red-300 font-bold">
+              Check Your Email and Name Entered
+            </p>
+            <p className="text-sm text-red-600 dark:text-red-300">
+              Seems That The Details You Entered Are Not Correct
+            </p>
+          </div>
+          <button
+            id="closeButton" 
+            className="ml-auto flex-shrink-0 focus:text-red-500 focus:outline-none"
+            onClick={(e) => {
+              setNoEmail(false);
+            }}
+          >
+            <svg
+              class="h-6 w-6 text-red-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      )}
     </>
   );
 };
