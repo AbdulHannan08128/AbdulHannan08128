@@ -1,3 +1,4 @@
+// MailConfig.js
 import nodemailer from 'nodemailer';
 
 const MailConfig = async (emailOptions) => {
@@ -23,7 +24,7 @@ const MailConfig = async (emailOptions) => {
     return info;
   } catch (error) {
     console.error('Error sending email:', error);
-    return false;
+    throw error; // Rethrow the error to be caught by the calling function
   }
 };
 
