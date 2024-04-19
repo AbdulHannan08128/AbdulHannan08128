@@ -1,3 +1,4 @@
+import Link from "next/link";
 const SharePost = (props) => {
   return (
     <>
@@ -108,13 +109,13 @@ const SharePost = (props) => {
             {/* {console.log(props.tags)} */}
             {props.tags.map((tag, index)=>{
 
-            return(<a
-              href="#"
+            return(<Link
+              href={"/blog/tag/"+tag}
               key={index}
               className="pr-2 duration-300 ease-in-out hover:text-primary"
             >
               #{tag}
-            </a>)
+            </Link>)
             
           })}
           </li>
