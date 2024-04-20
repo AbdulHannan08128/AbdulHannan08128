@@ -37,7 +37,7 @@ const BlogPage = async ({params}) => {
             <SectionHeader
               headerInfo={{
                 title: `Blogs`,
-                subtitle: `Results For Tag: ${params.tag}`,
+                subtitle: `Results For Tag: #${params.tag}`,
                 description: ``,
               }}
             />

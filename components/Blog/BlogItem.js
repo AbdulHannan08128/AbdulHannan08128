@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {urlForImage} from "@/utils/configSanity";
-const BlogItem = ({ blog }) => {
+const BlogItem = ({ blog, key }) => {
   
   const mainImage = urlForImage(blog.cover_image).width(400).height(200).url()||'NO IMAGE';
   const title = blog.title;
@@ -31,6 +31,7 @@ const BlogItem = ({ blog }) => {
         transition={{ duration: 1, delay: 0.5 }}
         viewport={{ once: true }}
         className="animate_top rounded-lg bg-white p-4 pb-9 shadow-solid-8 dark:bg-blacksection"
+        key={key}
       >
         <Link href={`/blog/`} className="relative block aspect-[368/239] rounded-xl">
           <Image src={mainImage} alt={title} fill className="rounded-xl"/>
