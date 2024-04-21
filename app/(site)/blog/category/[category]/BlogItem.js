@@ -49,10 +49,10 @@ const BlogItem = ({ blog }) => {
                   : `http://localhost:3000/blog/${title.replaceAll(" ", "-")}`
               }
             >
-              {`${title.slice(0, 40)}...`}
+              {title.length>40?`${title.slice(0, 40)}...`:title}
             </Link>
           </h3>
-          <p className="line-clamp-3">{metadata}</p>
+          <p className="line-clamp-3">{metadata}</p> 
         </div>
       </motion.div>
     </>
