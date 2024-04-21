@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import SectionHeader from "../Common/SectionHeader";
+import Link from "next/link";
 
 const Pricing = () => {
   return (
@@ -66,7 +67,7 @@ const Pricing = () => {
                   </li>
                 </ul>
               </div>
-
+              <Link href={'/hire'}>
               <button
                 aria-label="Get the Plan button"
                 className="group/btn inline-flex items-center gap-2.5 font-medium text-primary transition-all duration-300 dark:text-white dark:hover:text-primary"
@@ -86,6 +87,7 @@ const Pricing = () => {
                   />
                 </svg>
               </button>
+              </Link>
             </div>
 
             {/* <!-- Pricing Item --> */}
@@ -128,6 +130,7 @@ const Pricing = () => {
                 </ul>
               </div>
 
+              <Link href={'/hire'}>
               <button
                 aria-label="Get the Plan button"
                 className="group/btn inline-flex items-center gap-2.5 font-medium text-primary transition-all duration-300 dark:text-white dark:hover:text-primary"
@@ -147,6 +150,7 @@ const Pricing = () => {
                   />
                 </svg>
               </button>
+              </Link>
             </div>
 
             {/* <!-- Pricing Item --> */}
@@ -186,6 +190,7 @@ const Pricing = () => {
                 </ul>
               </div>
 
+              <Link href={'/hire'}>
               <button
                 aria-label="Get the Plan button"
                 className="group/btn inline-flex items-center gap-2.5 font-medium text-primary transition-all duration-300 dark:text-white dark:hover:text-primary"
@@ -205,6 +210,7 @@ const Pricing = () => {
                   />
                 </svg>
               </button>
+              </Link>
             </div>
           </div>
         </div>
