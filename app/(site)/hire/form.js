@@ -2,14 +2,16 @@
 import React from "react";
 import countries from "./countries";
 import brands from "./brands";
-
+import Link from "next/link";
+import SectionHeader from "@/components/Common/SectionHeader";
+import Image from "next/image";
 const form = () => {
   const [plan, setPlan] = React.useState("");
   const [planError, setPlanError] = React.useState();
   const [websiteType, setWebsiteType] = React.useState("");
   const [websiteTypeError, setWebsiteTypeError] = React.useState();
   const [baseAmount, setBaseAmount] = React.useState(0);
-  const [discount, setDiscount] = React.useState(60);
+  const [discount, setDiscount] = React.useState(50);
   async function planChange(e) {
     let selectedPlan = e.target.value;
 
@@ -19,23 +21,27 @@ const form = () => {
       setPlanError(false);
       setPlan(selectedPlan);
     }
-    
   }
 
-  async function websiteTypeChange(e){
+  async function websiteTypeChange(e) {
     let selectedWebsiteType = e.target.value;
-    if (selectedWebsiteType=='') {
+    if (selectedWebsiteType == "") {
       setBaseAmount(0);
-    }
-    else{
-    const [websiteTypeName, Amount] = selectedWebsiteType.split('-');
-    Amount?setBaseAmount(parseFloat(Amount)):setBaseAmount(parseFloat(0));
-
+    } else {
+      const [websiteTypeName, Amount] = selectedWebsiteType.split("-");
+      Amount ? setBaseAmount(parseFloat(Amount)) : setBaseAmount(parseFloat(0));
     }
   }
 
   return (
-    <div className="bg-coolGray-900 h-full w-full overflow-y-auto bg-opacity-50 px-4 py-16 md:py-28">
+    <div className="bg-coolGray-900 mt-10 h-full w-full overflow-y-auto bg-opacity-50 px-4 py-16 md:py-28">
+      <SectionHeader
+        headerInfo={{
+          title: `Hire Me`,
+          subtitle: `Get Started`,
+          description: ``,
+        }}
+      />
       <div className="bg-coolGray-50 mx-auto max-w-4xl rounded-lg p-6 sm:p-10">
         <form action="">
           <div className="-mx-4 mb-8 flex flex-wrap">
@@ -195,7 +201,10 @@ const form = () => {
             >
               Type Of Website You Want*
             </label>
-            <select className="border-coolGray-200 text-coolGray-300 placeholder-coolGray-300 focus:shadow-outline block h-12 w-full appearance-none rounded-lg border px-3 py-2 leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" onChange={websiteTypeChange}>
+            <select
+              className="border-coolGray-200 text-coolGray-300 placeholder-coolGray-300 focus:shadow-outline block h-12 w-full appearance-none rounded-lg border px-3 py-2 leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+              onChange={websiteTypeChange}
+            >
               <option value="none" key="" default>
                 Select Your Website Type
               </option>
@@ -206,36 +215,19 @@ const form = () => {
               )}
               {plan === "silver" && (
                 <>
-                  <option value="MPPW-99">
-                    Multi Page Personal Webapp
-                  </option>
-                  <option value="MPBW-149">
-                    Multi Page Business Webapp
-                  </option>
-                  <option value="CW-249">
-                    Chat Webapp
-                  </option>
-                  <option value="TW-149">
-                    Travel Webapp
-                  </option>
+                  <option value="MPPW-99">Multi Page Personal Webapp</option>
+                  <option value="MPBW-149">Multi Page Business Webapp</option>
+                  <option value="CW-249">Chat Webapp</option>
+                  <option value="TW-149">Travel Webapp</option>
                 </>
               )}
               {plan === "gold" && (
                 <>
-                  <option value="HBW-399">
-                    High Business Webapp
-                  </option>
-                  <option value="HBW-599">
-                    E-commerce Webapp
-                  </option>
-                 
-                  <option value="HTW-399">
-                    High Travel Webapp
-                  </option>
-                  <option value="MPBW-399">
-                    Multi Page Blog Webapp
-                  </option>
-                  
+                  <option value="HBW-399">High Business Webapp</option>
+                  <option value="HBW-599">E-commerce Webapp</option>
+
+                  <option value="HTW-399">High Travel Webapp</option>
+                  <option value="MPBW-399">Multi Page Blog Webapp</option>
                 </>
               )}
               {plan === "custom" && (
@@ -259,20 +251,39 @@ const form = () => {
                 Discount
               </span>
               <span className="text-coolGray-500 text-sm font-medium">
-                - {((discount/100)*baseAmount).toFixed(2)}
+                - {((discount / 100) * baseAmount).toFixed(2)}
               </span>
             </div>
             <div className="flex flex-wrap items-center justify-between">
               <span className="text-coolGray-800 font-medium">Subtotal</span>
-              <span className="text-coolGray-800 font-medium">${(baseAmount-((discount/100)*baseAmount)).toFixed(2)}</span>
+              <span className="text-coolGray-800 font-medium">
+                ${(baseAmount - (discount / 100) * baseAmount).toFixed(2)}
+              </span>
             </div>
           </div>
-          <a
-            className="inline-block w-full rounded-md bg-green-500 px-7 py-3 text-center text-base font-medium leading-6 text-green-50 shadow-sm hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+          <Link
+            className=" w-full rounded-md bg-green-500 px-7 py-3 text-center text-base font-medium leading-6 text-green-50 shadow-sm hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex"
+            style={{alignItems:'center', justifyContent:'center'}}
             href="#"
           >
-            Continue {'-->'}
-          </a>
+            Continue
+            <span>
+            <Image
+              width={20}
+              height={20}
+              src="/images/icon/icon-arrow-dark.svg"
+              alt="Arrow"
+              className="dark:hidden"
+            />
+            <Image
+              width={20}
+              height={20}
+              src="/images/icon/icon-arrow-light.svg"
+              alt="Arrow"
+              className="hidden dark:block"
+            />
+            </span>
+          </Link>
         </form>
       </div>
     </div>

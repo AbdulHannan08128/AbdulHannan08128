@@ -167,11 +167,11 @@ const Header = () => {
             </Link>
 
             <Link
-              href="#pricing"
+              href="/hire"
               className="flex items-center justify-center rounded-full bg-primary px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho sm:text-sm flex-nowrap"
               style={{minWidth:'80px'}}
             >
-              Hire Me 🔥
+              Get Started 🔥
             </Link>
           </div>
         </div>
