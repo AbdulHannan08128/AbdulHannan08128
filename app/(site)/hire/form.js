@@ -14,7 +14,7 @@ const form = () => {
   const [discount, setDiscount] = React.useState(50);
   const [name, setName] = React.useState();
   const [nameError, setNameError] = React.useState();
-  const [email, setEmail] = React.useState();
+  const [email, setEmail] = React.useState('');
   const [emailError, setEmailError] = React.useState();
   const [number, setNumber] = React.useState();
   const [numberError, setNumberError] = React.useState();
@@ -23,23 +23,105 @@ const form = () => {
   const [country, setCountry] = React.useState();
   const [countryError, setCountryError] = React.useState();
   const [brandType, setBrandType] = React.useState();
+  const [brandTypeError, setBrandTypeError] = React.useState();
   const [brandName, setBrandName] = React.useState();
+  const [brandNameError, setBrandNameError] = React.useState();
   const [websiteInfo, setWebsiteInfo] = React.useState();
+  const [websiteInfoError, setWebsiteInfoError] = React.useState();
   const [businessInfo, setBusinessInfo] = React.useState();
-  
+  const [businessInfoError, setBusinessInfoError] = React.useState();
+  const [allError, setAllError] = React.useState();
+
   const characters = [
     // Capital letters
-    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-    'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
     // Small letters
-    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
     // Special characters
-    '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '\\', ':', ';', '"', '\'', '<', '>', ',', '.', '?', '/', '~', '`', ' '
+    "!",
+    "@",
+    "#",
+    "$",
+    "%",
+    "^",
+    "&",
+    "*",
+    "(",
+    ")",
+    "-",
+    "_",
+    "+",
+    "=",
+    "{",
+    "}",
+    "[",
+    "]",
+    "|",
+    "\\",
+    ":",
+    ";",
+    '"',
+    "'",
+    "<",
+    ">",
+    ",",
+    ".",
+    "?",
+    "/",
+    "~",
+    "`",
+    " ",
   ];
-  
-  
-  
 
   async function planChange(e) {
     let selectedPlan = e.target.value;
@@ -71,6 +153,26 @@ const form = () => {
       setCity(city);
     }
   }
+  async function brandTypeChange(e) {
+    let brandType = e.target.value;
+
+    if (brandType == "") {
+      setBrandTypeError("Please Select a Brand Type");
+    } else {
+      setBrandTypeError(false);
+      setBrandType(brandType);
+    }
+  }
+  async function brandNameChange(e) {
+    let brandName = e.target.value;
+
+    if (brandName == "") {
+      setBrandNameError("Please Enter Your Brand Name");
+    } else {
+      setBrandNameError(false);
+      setBrandName(brandName);
+    }
+  }
   async function countryChange(e) {
     let country = e.target.value;
 
@@ -86,88 +188,159 @@ const form = () => {
 
     if (email == "") {
       setEmailError("Please Enter Your Email");
-    }else {
+    } else {
       setEmailError(false);
       setEmail(email);
+    }
+  }
+  async function websiteInfoChange(e) {
+    let websiteInfo = e.target.value;
+
+    if (websiteInfo == "") {
+      setWebsiteInfoError("Please Enter Details About Your Website");
+    } else {
+      setWebsiteInfoError(false);
+      setWebsiteInfo(websiteInfo);
+    }
+  }
+  async function businessInfoChange(e) {
+    let businessInfo = e.target.value;
+
+    if (businessInfo == "") {
+      setBusinessInfoError("Please Enter Your/Business Information");
+    } else {
+      setBusinessInfoError(false);
+      setBusinessInfo(businessInfo);
     }
   }
   async function numberChange(e) {
     const number = e.target.value;
     let invalidCharacter = false;
-    characters.forEach(character => {
+    characters.forEach((character) => {
       if (number.includes(character)) {
         invalidCharacter = true;
       }
     });
     if (invalidCharacter) {
-      setNumberError('Invalid Character Detected');
-    }
-    else if (number=='') {
-      setNumberError('Please Enter Your Phone Number');
-    }
-    else if (number.length>10) {
-      setNumberError('Please Enter A Valid Number');
-    }
-    else{
-      
+      setNumberError("Invalid Character Detected");
+    } else if (number == "") {
+      setNumberError("Please Enter Your Phone Number");
+    } else if (number.length > 10) {
+      setNumberError("Please Enter A Valid Ph. No.");
+    } else {
       setNumberError(false);
     }
 
     setNumber(number);
-
-
   }
-  
-
   async function websiteTypeChange(e) {
     let selectedWebsiteType = e.target.value;
-    if (plan=='custom') {
-      setBaseAmount(0);
-      setWebsiteInfo(selectedWebsiteType);
-    }
-    else{
-    if (selectedWebsiteType == "") {
+    if (plan == "custom") {
+      if (selectedWebsiteType == '') {
+        setWebsiteTypeError('Please Enter Your Custom Website Type')
+      }
+      else {
+        setWebsiteTypeError('');
+        setWebsiteType(selectedWebsiteType);
+      }
       setBaseAmount(0);
     } else {
-      const [websiteTypeName, Amount] = selectedWebsiteType.split("-");
-      Amount ? setBaseAmount(parseFloat(Amount)) : setBaseAmount(parseFloat(0));
-      switch (websiteTypeName) {
-        case 'SW':
-          setWebsiteType('Single Webpage');
-          break;
-        case 'MPPW':
-          setWebsiteType('Multi Page Personal Webapp');
-          break;
-        case 'MPBW':
-          setWebsiteType('Multi Page Business Webapp');
-          break;
-        case 'CW':
-          setWebsiteType('Chat Webapp');
-          break;
-        case 'TW':
-          setWebsiteType('Travel Webapp');
-          break;
-        case 'EW':
-          setWebsiteType('E-commerce Webapp');
-          break;
-        case 'HTW':
-          setWebsiteType('High Travel Webapp');
-          break;
-        case 'BW':
-          setWebsiteType('Blog Webapp');
-          break;
-        
+      if (selectedWebsiteType == "") {
+        setBaseAmount(0);
+        setWebsiteTypeError('Please Select A Website Type')
+      } else {
+        const [websiteTypeName, Amount] = selectedWebsiteType.split("-");
+        Amount
+          ? setBaseAmount(parseFloat(Amount))
+          : setBaseAmount(parseFloat(0));
+        switch (websiteTypeName) {
+          case "SW":
+            setWebsiteType("Single Webpage");
+            break;
+          case "MPPW":
+            setWebsiteType("Multi Page Personal Webapp");
+            break;
+          case "MPBW":
+            setWebsiteType("Multi Page Business Webapp");
+            break;
+          case "CW":
+            setWebsiteType("Chat Webapp");
+            break;
+          case "TW":
+            setWebsiteType("Travel Webapp");
+            break;
+          case "EW":
+            setWebsiteType("E-commerce Webapp");
+            break;
+          case "HTW":
+            setWebsiteType("High Travel Webapp");
+            break;
+          case "BW":
+            setWebsiteType("Blog Webapp");
+            break;
 
-      
-        default:
-          setWebsiteType('');
-          break;
+          default:
+            setWebsiteType("");
+            break;
+        }
       }
     }
   }
-}
 
+  async function validate() {
+    let validation = true; // Assume validation passes initially
   
+    if (
+      nameError || 
+      emailError || 
+      numberError || 
+      cityError || 
+      countryError || 
+      planError || 
+      brandTypeError || 
+      brandNameError || 
+      websiteTypeError || 
+      websiteTypeError || 
+      websiteInfoError || 
+      businessInfoError
+    ) {
+      validation = false; // Set validation to false if any error exists
+    }
+     if(nameError=='' || 
+      emailError=='' || 
+      numberError=='' || 
+      cityError=='' || 
+      countryError=='' || 
+      planError=='' || 
+      brandTypeError=='' || 
+      brandNameError=='' || 
+      websiteTypeError=='' || 
+      websiteTypeError=='' || 
+      websiteInfoError=='' || 
+      businessInfoError==''){
+      validation = false;
+    }
+     if(!email.includes('@')){
+      validation = false;
+      setEmailError('Detected Invalid Email')
+      
+    }
+   
+    return validation; // Return the validation result
+  }
+  
+  async function submit(e) {
+    e.preventDefault();
+    const isValid = await validate(); // Await the result of validation
+   
+    if (isValid) {
+      setAllError(false);
+    } else {
+      setAllError(true);
+    }
+  }
+  
+
   return (
     <div className="bg-coolGray-900 mt-10 h-full w-full overflow-y-auto bg-opacity-50 px-4 py-16 md:py-28">
       <SectionHeader
@@ -195,8 +368,8 @@ const form = () => {
                 onChange={nameChange}
               />
               <div className=" mt-1 text-red-500">
-              {nameError ? nameError : ""}
-            </div>
+                {nameError ? nameError : ""}
+              </div>
             </div>
             <div className="w-full px-4 md:w-1/2">
               <label
@@ -213,8 +386,8 @@ const form = () => {
                 onChange={emailChange}
               />
               <div className=" mt-1 text-red-500">
-              {emailError ? emailError : ""}
-            </div>
+                {emailError ? emailError : ""}
+              </div>
             </div>
           </div>
 
@@ -235,8 +408,8 @@ const form = () => {
                 value={number}
               />
               <div className=" mt-1 text-red-500">
-              {numberError ? numberError : ""}
-            </div>
+                {numberError ? numberError : ""}
+              </div>
             </div>
             <div className="mb-8 w-full px-4 md:mb-0 md:w-1/3">
               <label
@@ -253,8 +426,8 @@ const form = () => {
                 onChange={cityChange}
               />
               <div className=" mt-1 text-red-500">
-              {cityError ? cityError : ""}
-            </div>
+                {cityError ? cityError : ""}
+              </div>
             </div>
             <div className="w-full px-4 md:w-1/3">
               <label
@@ -263,7 +436,10 @@ const form = () => {
               >
                 Country*
               </label>
-              <select className="border-coolGray-200 text-coolGray-300 placeholder-coolGray-300 focus:shadow-outline block h-12 w-full appearance-none rounded-lg border px-3 py-2 leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" onChange={countryChange}>
+              <select
+                className="border-coolGray-200 text-coolGray-300 placeholder-coolGray-300 focus:shadow-outline block h-12 w-full appearance-none rounded-lg border px-3 py-2 leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                onChange={countryChange}
+              >
                 <option value="" key="" default>
                   Select Your Country
                 </option>
@@ -276,8 +452,8 @@ const form = () => {
                 })}
               </select>
               <div className=" mt-1 text-red-500">
-              {countryError ? countryError : ""}
-            </div>
+                {countryError ? countryError : ""}
+              </div>
             </div>
           </div>
           <div className="mb-8">
@@ -320,8 +496,11 @@ const form = () => {
               >
                 Brand Type*
               </label>
-              <select className="border-coolGray-200 text-coolGray-300 placeholder-coolGray-300 focus:shadow-outline block h-12 w-full appearance-none rounded-lg border px-3 py-2 leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
-                <option value="none" key="" default>
+              <select
+                className="border-coolGray-200 text-coolGray-300 placeholder-coolGray-300 focus:shadow-outline block h-12 w-full appearance-none rounded-lg border px-3 py-2 leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                onChange={brandTypeChange}
+              >
+                <option value="" key="" default>
                   Select Your Brand Type
                 </option>
                 {brands.map((brand, key) => {
@@ -332,6 +511,9 @@ const form = () => {
                   );
                 })}
               </select>
+              <div className=" mt-1 text-red-500">
+                {brandTypeError ? brandTypeError : ""}
+              </div>
             </div>
             <div className="w-full px-4 md:w-1/2">
               <label
@@ -345,7 +527,11 @@ const form = () => {
                 type="email"
                 placeholder="Your Brand Name"
                 fdprocessedid="yyd6oi"
+                onChange={brandNameChange}
               />
+              <div className=" mt-1 text-red-500">
+                {brandNameError ? brandNameError : ""}
+              </div>
             </div>
           </div>
 
@@ -356,46 +542,50 @@ const form = () => {
             >
               Type Of Website You Want*
             </label>
-            {plan!='custom'?
-            <select
-              className="border-coolGray-200 text-coolGray-300 placeholder-coolGray-300 focus:shadow-outline block h-12 w-full appearance-none rounded-lg border px-3 py-2 leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
-              onChange={websiteTypeChange}
-            >
-              <option value="none" key="" default>
-                Select Your Website Type
-              </option>
-              {plan === "bronze" && (
-                <option value="SW-0" key="SW-0">
-                  Single Webpage
+            {plan != "custom" ? (
+              <select
+                className="border-coolGray-200 text-coolGray-300 placeholder-coolGray-300 focus:shadow-outline block h-12 w-full appearance-none rounded-lg border px-3 py-2 leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                onChange={websiteTypeChange}
+              >
+                <option value="" key="" default>
+                  Select Your Website Type
                 </option>
-              )}
-              {plan === "silver" && (
-                <>
-                  <option value="MPPW-99">Multi Page Personal Webapp</option>
-                  <option value="MPBW-149">Multi Page Business Webapp</option>
-                  <option value="CW-249">Chat Webapp</option>
-                  <option value="TW-149">Travel Webapp</option>
-                </>
-              )}
-              {plan === "gold" && (
-                <>
-                  <option value="HBW-399">High Business Webapp</option>
-                  <option value="EW-599">E-commerce Webapp</option>
+                {plan === "bronze" && (
+                  <option value="SW-0" key="SW-0">
+                    Single Webpage
+                  </option>
+                )}
+                {plan === "silver" && (
+                  <>
+                    <option value="MPPW-99">Multi Page Personal Webapp</option>
+                    <option value="MPBW-149">Multi Page Business Webapp</option>
+                    <option value="CW-249">Chat Webapp</option>
+                    <option value="TW-149">Travel Webapp</option>
+                  </>
+                )}
+                {plan === "gold" && (
+                  <>
+                    <option value="HBW-399">High Business Webapp</option>
+                    <option value="EW-599">E-commerce Webapp</option>
 
-                  <option value="HTW-399">High Travel Webapp</option>
-                  <option value="BW-399">Blog Webapp</option>
-                </>
-              )}
-             
-            </select>
-:''}
+                    <option value="HTW-399">High Travel Webapp</option>
+                    <option value="BW-399">Blog Webapp</option>
+                  </>
+                )}
+              </select>
+            ) : (
+              ""
+            )}
             {plan === "custom" && (
-                 <input
-                 className="border-coolGray-200 text-coolGray-300 placeholder-coolGray-300 focus:shadow-outline block h-12 w-full appearance-none rounded-lg border px-3 py-2 leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
-                 placeholder="Type Your Custom Website Type"
-                 onChange={websiteTypeChange} 
+              <input
+                className="border-coolGray-200 text-coolGray-300 placeholder-coolGray-300 focus:shadow-outline block h-12 w-full appearance-none rounded-lg border px-3 py-2 leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                placeholder="Type Your Custom Website Type"
+                onChange={websiteTypeChange}
               />
-              )}
+            )}
+            <div className=" mt-1 text-red-500">
+              {websiteTypeError ? websiteTypeError : ""}
+            </div>
           </div>
           <div className="-mx-4 mb-8 flex flex-wrap">
             <div className="mb-8 w-full px-4 md:mb-0 md:w-1/2">
@@ -405,7 +595,16 @@ const form = () => {
               >
                 Additional Info About Your Website*
               </label>
-              <textarea cols="30" rows="10" className="border-coolGray-200 text-coolGray-300 placeholder-coolGray-300 focus:shadow-outline block w-full appearance-none rounded-lg border px-3 py-2 leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" placeholder="Type How Your Website Should Look"></textarea>
+              <textarea
+                cols="30"
+                rows="10"
+                className="border-coolGray-200 text-coolGray-300 placeholder-coolGray-300 focus:shadow-outline block w-full appearance-none rounded-lg border px-3 py-2 leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                placeholder="Type How Your Website Should Look"
+                onChange={websiteInfoChange}></textarea>
+              <div className=" mt-1 text-red-500">
+                {websiteInfoError ? websiteInfoError : ""}
+              </div>
+
             </div>
             <div className="w-full px-4 md:w-1/2">
               <label
@@ -414,49 +613,94 @@ const form = () => {
               >
                 Additional Info About Your Business/You*
               </label>
-             <textarea cols="30" rows="10" className="border-coolGray-200 text-coolGray-300 placeholder-coolGray-300 focus:shadow-outline block w-full appearance-none rounded-lg border px-3 py-2 leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" placeholder="Type Information About Your Business Or Yourself"></textarea>
+              <textarea
+                cols="30"
+                rows="10"
+                className="border-coolGray-200 text-coolGray-300 placeholder-coolGray-300 focus:shadow-outline block w-full appearance-none rounded-lg border px-3 py-2 leading-6 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                placeholder="Type Information About Your Business Or Yourself"
+                onChange={businessInfoChange}
+              ></textarea>
+              <div className=" mt-1 text-red-500">
+                {businessInfoError ? businessInfoError : ""}
+              </div>
             </div>
           </div>
 
-          {plan!='custom'?
-          <div className="mb-8">
-            <div className="mb-3 flex flex-wrap items-center justify-between">
-              <span className="text-coolGray-500 text-sm font-medium">
-                Total Base Amount
-              </span>
-              <span className="text-coolGray-500 text-sm font-medium">
-                {baseAmount.toFixed(2)}
-              </span>
-            </div>
 
+          {plan != "custom" ? (
+            <div className="mb-8">
+              <div className="mb-3 flex flex-wrap items-center justify-between">
+                <span className="text-coolGray-500 text-sm font-medium">
+                  Total Base Amount
+                </span>
+                <span className="text-coolGray-500 text-sm font-medium">
+                  {baseAmount.toFixed(2)}
+                </span>
+              </div>
 
-
-            <div className="mb-4 flex flex-wrap items-center justify-between">
-              <span className="text-coolGray-500 text-sm font-medium">
-                Discount
-              </span>
-              <span className="text-coolGray-500 text-sm font-medium">
-                - {((discount / 100) * baseAmount).toFixed(2)}
-              </span>
+              <div className="mb-4 flex flex-wrap items-center justify-between">
+                <span className="text-coolGray-500 text-sm font-medium">
+                  Discount
+                </span>
+                <span className="text-coolGray-500 text-sm font-medium">
+                  - {((discount / 100) * baseAmount).toFixed(2)}
+                </span>
+              </div>
+              <div className="flex flex-wrap items-center justify-between">
+                <span className="text-coolGray-800 font-medium">Subtotal</span>
+                <span className="text-coolGray-800 font-medium">
+                  ${(baseAmount - (discount / 100) * baseAmount).toFixed(2)}
+                </span>
+              </div>
             </div>
-            <div className="flex flex-wrap items-center justify-between">
-              <span className="text-coolGray-800 font-medium">Subtotal</span>
-              <span className="text-coolGray-800 font-medium">
-                ${(baseAmount - (discount / 100) * baseAmount).toFixed(2)}
-              </span>
-            </div>
-          </div>
-:''}
-          <Link
-            className=" w-full rounded-md bg-green-500 px-7 py-3 text-center text-base font-medium leading-6 text-green-50 shadow-sm hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 inline-block"
-            
-            href="#"
+          ) : (
+            ""
+          )}
+          <button
+            className=" inline-block w-full rounded-md bg-green-500 px-7 py-3 text-center text-base font-medium leading-6 text-green-50 shadow-sm hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+            onClick={submit}
           >
-            Continue {''}
-            
-          </Link>
+            Continue {""}
+          </button>
         </form>
       </div>
+      {allError?(
+        <div
+        id="infoMessage"
+        className=" flex items-center rounded-lg border-l-4 border-red-400 bg-red-50 p-4 shadow-lg dark:bg-gray-800 dark:text-red-300 w-96 fixed bottom-0 left-0 z-50 overflow-x-scroll alert"
+      >
+       
+        <div class="ml-3">
+          <p class="text-sm text-red-800 dark:text-red-300 font-bold">
+            Please Recheck Your Details Entered
+          </p>
+          <p className="text-sm text-red-600 dark:text-red-300">
+            Seems That The Details You Entered Are Not Correct
+          </p>
+        </div>
+        <button
+          id="closeButton" 
+          className="ml-auto flex-shrink-0 focus:text-red-500 focus:outline-none"
+          onClick={(e) => {
+            setAllError(false);
+          }}
+        >
+          <svg
+            class="h-6 w-6 text-red-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      ):''}
     </div>
   );
 };
