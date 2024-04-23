@@ -8,7 +8,7 @@ import Image from "next/image";
 const form = () => {
   const [plan, setPlan] = React.useState("");
   const [planError, setPlanError] = React.useState();
-  const [websiteType, setWebsiteType] = React.useState("");
+  const [websiteType, setWebsiteType] = React.useState();
   const [websiteTypeError, setWebsiteTypeError] = React.useState();
   const [baseAmount, setBaseAmount] = React.useState(0);
   const [discount, setDiscount] = React.useState(50);
@@ -240,7 +240,7 @@ const form = () => {
         setWebsiteTypeError('Please Enter Your Custom Website Type')
       }
       else {
-        setWebsiteTypeError('');
+        setWebsiteTypeError(false);
         setWebsiteType(selectedWebsiteType);
       }
       setBaseAmount(0);
@@ -287,54 +287,55 @@ const form = () => {
     }
   }
 
-  async function validate() {
+  function validate() {
     let validation = true; // Assume validation passes initially
   
     if (
-      nameError || 
-      emailError || 
-      numberError || 
-      cityError || 
-      countryError || 
-      planError || 
-      brandTypeError || 
-      brandNameError || 
-      websiteTypeError || 
-      websiteTypeError || 
-      websiteInfoError || 
-      businessInfoError
+      !name || !email || !number || !city || !country || !plan || 
+      !brandType || !brandName || !websiteType || !websiteInfo || !businessInfo 
     ) {
-      validation = false; // Set validation to false if any error exists
+      validation = false;
+      setAllError(true);
+      return false;
     }
-     if(nameError=='' || 
-      emailError=='' || 
-      numberError=='' || 
-      cityError=='' || 
-      countryError=='' || 
-      planError=='' || 
-      brandTypeError=='' || 
-      brandNameError=='' || 
-      websiteTypeError=='' || 
-      websiteTypeError=='' || 
-      websiteInfoError=='' || 
-      businessInfoError==''){
+    if (
+      nameError||emailError||numberError||cityError||countryError||planError||websiteTypeError||websiteInfoError||businessInfoError||brandTypeError||brandNameError
+    ) {
+      validation = false;
+      setAllError(true);
+      return false;
+    }
+  
+    if (!email.includes('@')) {
+      setEmailError('Detected Invalid Email');
       validation = false;
     }
-     if(!email.includes('@')){
+  
+    if (number.length !== 10 || !/^\d+$/.test(number)) {
+      setNumberError("Please Enter A Valid Ph. No.");
       validation = false;
-      setEmailError('Detected Invalid Email')
-      
     }
-   
+  
+    if (plan === "custom" && websiteType === '') {
+      setWebsiteTypeError('Please Enter Your Custom Website Type');
+      validation = false;
+    }
+  
+    if (!planError && !brandTypeError && !websiteTypeError && !emailError && !numberError && !nameError && !cityError && !countryError && !brandNameError && !websiteInfoError && !businessInfoError) {
+      setAllError(false);
+    }
+  
     return validation; // Return the validation result
   }
+  
   
   async function submit(e) {
     e.preventDefault();
     const isValid = await validate(); // Await the result of validation
-   
+  
     if (isValid) {
       setAllError(false);
+      alert('Your Details Were Submitted Successfully')
     } else {
       setAllError(true);
     }
