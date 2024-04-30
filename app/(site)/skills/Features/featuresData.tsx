@@ -5,113 +5,97 @@ const featuresData: Feature[] = [
     id: 1,
     icon: "/images/icon/icon-01.svg",
     title: "HTML",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    description: "Structure webpages with Hyper Text Markup Language.",
   },
   {
     id: 2,
     icon: "/images/icon/icon-02.svg",
     title: "CSS",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    description: "Style webpages with Cascading Style Sheets.",
   },
   {
     id: 3,
     icon: "/images/icon/icon-03.svg",
-    title: "Javascript",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    title: "JavaScript",
+    description: "Create interactive web content with JavaScript.",
   },
   {
     id: 4,
     icon: "/images/icon/icon-04.svg",
     title: "Node.js",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    description: "Run JavaScript on the server-side with Node.js.",
   },
   {
     id: 5,
     icon: "/images/icon/icon-05.svg",
     title: "Express.js",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    description: "Build web applications using the Express.js framework.",
   },
   {
     id: 6,
     icon: "/images/icon/icon-06.svg",
     title: "EJS",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    description: "Generate dynamic content with Embedded JavaScript templates.",
   },
   {
     id: 7,
     icon: "/images/icon/icon-01.svg",
     title: "React.js",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    description: "Develop UI components efficiently with React.js.",
   },
   {
     id: 8,
     icon: "/images/icon/icon-02.svg",
     title: "Next.js",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    description: "Utilize server-side rendering with the Next.js framework.",
   },
   {
     id: 9,
     icon: "/images/icon/icon-03.svg",
     title: "Bootstrap",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    description: "Create responsive designs with the Bootstrap CSS framework.",
   },
   {
     id: 10,
     icon: "/images/icon/icon-04.svg",
-    title: "Tailwind",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    title: "Tailwind CSS",
+    description: "Build custom designs using the utility-first Tailwind CSS framework.",
   },
   {
     id: 11,
     icon: "/images/icon/icon-05.svg",
     title: "MongoDB",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    description: "Store scalable data with the NoSQL database MongoDB.",
   },
   {
     id: 12,
     icon: "/images/icon/icon-06.svg",
-    title: "  MySQL",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    title: "MySQL",
+    description: "Manage relational data using the MySQL database system.",
   },
   {
     id: 13,
     icon: "/images/icon/icon-01.svg",
-    title: "Wordpress",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    title: "WordPress",
+    description: "Create and manage websites and blogs with the WordPress CMS.",
   },
   {
     id: 14,
     icon: "/images/icon/icon-02.svg",
     title: "Sanity.io",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    description: "Manage structured content with the headless CMS Sanity.io.",
   },
   {
     id: 15,
     icon: "/images/icon/icon-02.svg",
     title: "JSON",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    description: "Exchange data efficiently with the lightweight JSON format.",
   },
   {
     id: 16,
     icon: "/images/icon/icon-02.svg",
     title: "Material UI",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    description: "Implement Material Design principles with the React component library Material UI.",
   },
   
 ];
