@@ -46,7 +46,7 @@ const Footer = () => {
           </a>
 
                 <p className="mb-10 mt-5">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Abdul Hannan - Full Stack Web Developer
                 </p>
 
                 
@@ -78,7 +78,7 @@ const Footer = () => {
                   <ul>
                     <li>
                       <a
-                        href="#"
+                        href="/"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Home
@@ -86,7 +86,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/blog"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Blog
@@ -94,7 +94,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/pricing"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Pricing
@@ -102,7 +102,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/skills"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Skills
@@ -110,7 +110,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/portfolio"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Portfolio
@@ -184,7 +184,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="/contact"
+                        href="/support"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Contact
