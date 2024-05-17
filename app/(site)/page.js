@@ -13,6 +13,7 @@ import Blog from "@/components/Blog/BlogItem";
 import Testimonial from "@/components/Testimonial";
 import { client } from "@/utils/configSanity";
 import SectionHeader from "@/components/Common/SectionHeader";
+import Head from 'next/head'
 
 export const dynamic = "force-dynamic";
 async function getData() {
@@ -76,7 +77,12 @@ export const metadata = {
 export default async function Home() {
   const blogs = await getData();
   return (
+   <>
+   <Head>
+   <meta name="google-site-verification" content="3GyNIKlfa7swMDuh7zQ_PrVJaKFiecl4N4EUSMpOFZc" />
+   </Head>
     <main>
+
       <Hero />
       <Brands />
       <Feature />
@@ -110,5 +116,6 @@ export default async function Home() {
         </div>
       </div>
     </main>
+    </>
   );
 }
