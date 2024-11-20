@@ -115,11 +115,52 @@
   @apply absolute left-0 top-0 h-[106px] w-[140px] bg-[url(/images/blog/quote-shape-1.svg)] bg-contain bg-left-top bg-no-repeat dark:bg-[url(/images/blog/quote-shape-1.svg)];
 }
 
-pre {
-  @apply relative mb-2 rounded-lg bg-strokedark px-4 py-2;
+/* Wrapper for code block */
+.code-wrapper {
+  position: relative;
+  width: 100%;
 }
-.prism-copy-button {
-  @apply absolute right-2 top-2 h-[26px] rounded bg-white px-4 text-primary;
+
+.blog-details code {
+  @apply bg-black dark:bg-slate-800 p-4 rounded-sm text-white cursor-pointer transition-colors duration-200 w-full block my-4;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  line-height: 1.5;
+  font-size: 0.9em;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* Copy button styling */
+.copy-indicator {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  background-color: #2d2d2d;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.copy-indicator.copied {
+  background-color: #059669;
+}
+
+/* Scrollbar styling */
+.blog-details code::-webkit-scrollbar {
+  height: 8px;
+}
+
+.blog-details code::-webkit-scrollbar-track {
+  background: #2e3440;
+}
+
+.blog-details code::-webkit-scrollbar-thumb {
+  background: #4c566a;
+  border-radius: 4px;
 }
 
 .active-tab {
@@ -132,3 +173,9 @@ pre {
     max-width: 80vw;
   }
 }
+
+
+.blog-details a {
+  @apply text-blue-500 underline dark:text-blue-300
+}
+

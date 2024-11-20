@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { client } from "@/utils/configSanity";
 import { urlForImage } from "@/utils/configSanity";
-import Search from '../Search'
+import Search from '../Search';
+import CopyCode from './copyCode';
 
 export const dynamic = "force-dynamic";
 async function getData() {
@@ -142,6 +143,7 @@ const SingleBlogPage = async (props) => {
                     </div>
 
                     <SharePost tags={tags} />
+                    <CopyCode/>
                   </div>
                 </div>
               </div>

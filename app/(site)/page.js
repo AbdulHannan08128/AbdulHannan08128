@@ -24,10 +24,8 @@ async function getData() {
   let blogs = [];
   if (data.length > 3) {
     blogs = [data[0], data[1], data[2]];
-    //console.log(blogs); //[]
   } else {
     blogs = data;
-    //console.log(blogs); //[]
   }
 
   return blogs;
@@ -79,7 +77,6 @@ export default async function Home() {
   return (
    <>
    <Head>
-   <meta name="google-site-verification" content="3GyNIKlfa7swMDuh7zQ_PrVJaKFiecl4N4EUSMpOFZc" />
    </Head>
     <main>
 

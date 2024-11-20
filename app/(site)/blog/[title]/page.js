@@ -55,13 +55,6 @@ export async function generateMetadata({ params }) {
   };
 }
 
-  
-  
-
- 
-
-  
-
 const page = ({ params }) => {
   return (
     <>
